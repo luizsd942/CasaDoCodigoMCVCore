@@ -42,7 +42,7 @@ namespace CasaDoCodigo.Models
         {
         }
 
-        public virtual Pedido Pedido { get; set; }
+        public virtual ItemPedido Pedido { get; set; }
         [Required]
         public string Nome { get; set; } = "";
         [Required]
@@ -66,7 +66,7 @@ namespace CasaDoCodigo.Models
     public class ItemPedido : BaseModel
     {
         [Required]
-        public Pedido Pedido { get; private set; }
+        public ItemPedido Pedido { get; private set; }
         [Required]
         public Produto Produto { get; private set; }
         [Required]
@@ -79,7 +79,7 @@ namespace CasaDoCodigo.Models
 
         }
 
-        public ItemPedido(Pedido pedido, Produto produto, int quantidade, decimal precoUnitario)
+        public ItemPedido(ItemPedido pedido, Produto produto, int quantidade, decimal precoUnitario)
         {
             Pedido = pedido;
             Produto = produto;
@@ -88,14 +88,14 @@ namespace CasaDoCodigo.Models
         }
     }
 
-    public class Pedido : BaseModel
+    public class ItemPedido : BaseModel
     {
-        public Pedido()
+        public ItemPedido()
         {
             Cadastro = new Cadastro();
         }
 
-        public Pedido(Cadastro cadastro)
+        public ItemPedido(Cadastro cadastro)
         {
             Cadastro = cadastro;
         }
